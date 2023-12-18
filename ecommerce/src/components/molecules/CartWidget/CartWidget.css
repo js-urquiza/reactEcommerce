@@ -1,0 +1,8 @@
+.cartIcon {
+    border: 1px solid lightgray;
+    border-radius: 100%;
+}
+
+.cartIcon svg {
+    margin: 6px 8px;
+}
