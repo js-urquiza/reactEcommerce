@@ -11,9 +11,7 @@ const Navbar = () => {
       <>
         <nav>
             <h3>Ecommerce</h3>
-            <NavButton btnTitle={titles[0]} />
-            <NavButton btnTitle={titles[1]} />
-            <NavButton btnTitle={titles[2]} />
+            { titles.map((title, index) => <NavButton key={index} btnTitle={title} />) }
             <CartWidget />
         </nav>
       </>
