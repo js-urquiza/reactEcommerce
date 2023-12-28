@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ItemListContainer.css'
 import { getProducts } from '../../../database/asyncProductsDB'
 import ItemList from '../../molecules/ItemList/ItemList'
+import Loader from '../../atoms/Loader/Loader'
 
 
 const ItemListContainer = ({greeting}) => {
@@ -21,7 +22,7 @@ const ItemListContainer = ({greeting}) => {
   return (
     <>
       <h1>{greeting}</h1>
-      {loaded ? <div>Cargando...</div> : <ItemList products={products} />}
+      {loaded ? <Loader /> : <ItemList products={products} />}
     </>
   );
 }
