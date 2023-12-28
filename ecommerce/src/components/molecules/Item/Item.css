@@ -1,0 +1,82 @@
+.item-list-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    max-width: 100%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.item-list-card:hover {
+    transform: scale(1.05);
+}
+
+.item-list-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.item-list-card .card-content {
+    padding: 16px;
+}
+
+.item-list-card .card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.item-list-card .card-price {
+    color: #e44d26;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.item-list-card .card-category {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.item-list-card .card-description {
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.item-list-card .quantity-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.item-list-card .quantity-label {
+    font-size: 1em;
+    color: #333;
+}
+
+.item-list-card .quantity-input {
+    width: 40px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.item-list-card .add-to-cart-btn {
+    display: block;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #e48b26;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item-list-card .add-to-cart-btn:hover {
+    background-color: #333;
+}
