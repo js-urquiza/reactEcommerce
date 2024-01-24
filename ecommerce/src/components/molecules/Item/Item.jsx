@@ -1,5 +1,6 @@
 import React from 'react'
 import './Item.css'
+import { Link } from 'react-router-dom'
 
 const Item = ({product}) => {
   return (
@@ -7,6 +8,7 @@ const Item = ({product}) => {
       <div className="item-list-card">
         <img src={product.img} alt="Product Image" />
         <div className="card-content">
+          <Link to={`/item/${product.id}`}>Ver detalle</Link>
           <div className="card-title">{product.name}</div>
           <div className="card-price">${product.price}</div>
           <div className="card-description">{product.description}</div>
