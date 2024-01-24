@@ -19,7 +19,6 @@ const ItemListContainer = ({greeting}) => {
         setLoaded(true);
         const result = category ? await getProductByCategory(category) : await getProducts();
         setProducts(result);
-        console.log(result);
       } catch (error) {
         console.log(error.message);
       } finally {
