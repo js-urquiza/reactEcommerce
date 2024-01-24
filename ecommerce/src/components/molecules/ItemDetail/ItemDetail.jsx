@@ -4,6 +4,7 @@ import './ItemDetail.css'
 const ItemDetail = ({id, name, price, category, stock, description, img}) => {
   return (
     <div className="item-detail">
+      <img src={img} alt="Product Image" />
       <h2 id="productName">{name}</h2>
       <p className="category" id="productCategory">{category}</p>
       <p id="productDescription">{description}</p>
