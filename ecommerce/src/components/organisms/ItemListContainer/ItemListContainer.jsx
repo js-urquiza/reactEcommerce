@@ -4,7 +4,6 @@ import { getProductByCategory, getProducts } from '../../../database/asyncProduc
 import ItemList from '../../molecules/ItemList/ItemList'
 import Loader from '../../atoms/Loader/Loader'
 import { useParams } from 'react-router-dom'
-import { Category } from '@mui/icons-material'
 
 
 const ItemListContainer = ({greeting}) => {
