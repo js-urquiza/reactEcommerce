@@ -6,11 +6,11 @@ const ItemList = ({products}) => {
   return (
     <div className='item-list'>
         {
-            products.map(element => {
-                return <Item product={element} />
-            })
+          products.map((element, index) => {
+            return <Item key={index} product={element} />
+          })
         }   
-    </div>    
+    </div>
   );
 }
 

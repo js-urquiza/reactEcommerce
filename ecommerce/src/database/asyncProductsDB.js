@@ -82,7 +82,7 @@ export const getProductByCategory = (category) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(
-        products.find((product) => product.category == category)
+        products.filter((product) => product.category == category)
       )
     }, 500)
   })
