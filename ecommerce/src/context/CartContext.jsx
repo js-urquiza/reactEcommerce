@@ -2,6 +2,9 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
+
+// El siguiente Provider es un componente.
+// Se piensa el Provider como un componente. Min. 00:59
 export const CartContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
