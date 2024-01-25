@@ -5,19 +5,24 @@ import ItemListContainer from './components/organisms/ItemListContainer/ItemList
 import ItemDetailContainer from "./components/organisms/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+// Contexts
+import { CartContext, CartContextProvider } from './context/CartContext';
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} />} />
-          <Route path='/category/:category' element={<ItemListContainer greeting={'Bienvenidos'} />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} />} />
+            <Route path='/category/:category' element={<ItemListContainer greeting={'Bienvenidos'} />} />
+            <Route path='/item/:id' element={<ItemDetailContainer />} />
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </>
   )
 }
