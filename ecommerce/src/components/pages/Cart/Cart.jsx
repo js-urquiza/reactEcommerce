@@ -4,7 +4,7 @@ import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
   
-  const { cart, total } = useContext(CartContext);
+  const { cart, total, emptyCart } = useContext(CartContext);
 
   console.log(cart);
   console.log(total);
@@ -28,6 +28,7 @@ const Cart = () => {
             </div>
           ))}
           <h3>Total: ${total()}</h3>
+          <button className='empty-cart' onClick={()=>emptyCart()}>Vaciar</button>
         </div>
         </>
       )}
