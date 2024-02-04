@@ -1,0 +1,59 @@
+/* Contenedor principal del carrito */
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo para cada elemento del carrito */
+.item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 32px;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Título del producto */
+.item h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Imagen del producto */
+
+.item .image {
+    max-width: 120px;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Precio del producto */
+.item p.price {
+    font-size: 16px;
+    color: #e47911;
+    /* Amarillo similar al de Amazon */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Cantidad del producto */
+.item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}

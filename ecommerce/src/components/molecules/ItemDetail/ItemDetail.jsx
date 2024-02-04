@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../../../context/CartContext'
 import './ItemDetail.css'
 
@@ -6,7 +7,7 @@ const ItemDetail = ({product}) => {
   
   const [quantity, setQuantity] = useState(1);
 
-  const { cart, addToCart } = useContext(CartContext);
+  const { cart, addToCart, isInCart } = useContext(CartContext);
 
   console.log(cart);
 
@@ -37,14 +38,21 @@ const ItemDetail = ({product}) => {
             <p className="price" id="productPrice">
               ${product.price}
             </p>
-            <div className="quantity-section">
-              <button onClick={hanleDecreaseQuantity}>-</button>
-              <span id="productQuantity">{quantity}</span>
-              <button onClick={handleIncreaseQuantity}>+</button>
-            </div>
-            <button className="add-to-cart-btn" onClick={handleAddToCart}>
-              Agregar al carrito
-            </button>
+            {
+              isInCart(product.id)
+              ? <Link to='/cart'><button className="add-to-cart-btn" >Ir al carrito</button></Link>
+              :
+              <>
+                <div className="quantity-section">
+                  <button onClick={hanleDecreaseQuantity}>-</button>
+                  <span id="productQuantity">{quantity}</span>
+                  <button onClick={handleIncreaseQuantity}>+</button>
+                </div>
+                <button className="add-to-cart-btn" onClick={handleAddToCart}>
+                  Agregar al carrito
+                </button>
+              </>
+            }
           </div>
       }
     </>
