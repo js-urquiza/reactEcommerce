@@ -4,9 +4,10 @@ import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
   
-  const { cart } = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
 
   console.log(cart);
+  console.log(total);
 
   return (
     <div>
@@ -26,6 +27,7 @@ const Cart = () => {
               <p className='price'>Precio: ${item.price}</p>
             </div>
           ))}
+          <h3>Total: ${total()}</h3>
         </div>
         </>
       )}
