@@ -4,7 +4,7 @@ import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
   
-  const { cart, total, emptyCart } = useContext(CartContext);
+  const { cart, total, emptyCart, removeItem } = useContext(CartContext);
 
   console.log(cart);
   console.log(total);
@@ -25,6 +25,8 @@ const Cart = () => {
               <h3>{item.name}</h3>
               <p>Cantidad: {item.quantity}</p>
               <p className='price'>Precio: ${item.price}</p>
+              <button className='remove-item' onClick={()=>removeItem(item.id)}>Eliminar</button>
+              {/* Si no se hace una función callback on onClick entonces no se puede para id por parámetro */}
             </div>
           ))}
           <h3>Total: ${total()}</h3>
