@@ -1,9 +1,15 @@
-.btn {
-    background-color: #3498db;
-    color: #fff;
+nav .btn {
+    background-color: #3498db; /* Azul similar al de Amazon */
+    color: #fff; /* Color de texto blanco */
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+nav .btn:hover {
+    background-color: #2574a9;
 }

@@ -24,7 +24,9 @@ const Navbar = () => {
       <>
         <nav>
             <h3>Ecommerce</h3>
+            <div className='btns-container'>
             { categories.map((categories, index) => <NavButton key={index} categories={categories} />) }
+            </div>
             <CartWidget />
         </nav>
       </>
