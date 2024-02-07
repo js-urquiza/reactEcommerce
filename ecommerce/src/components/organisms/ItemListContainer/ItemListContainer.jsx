@@ -25,34 +25,34 @@ const ItemListContainer = ({greeting}) => {
 
     getDocs(productsRef) // Traemos los documentos de la colección indicada en 'productsRef'.
       .then(snapshot => {
-        const formatedProducts = snapshot.docs.map(doc => {
+        const formattedProducts = snapshot.docs.map(doc => {
           const data = doc.data(); // Trae los datos de cada producto
           return {
             id: doc.id, // Ponemos el id del documento
             ...data // Agregamos los datos con el spread operatos
           }
         })
-        setProducts(formatedProducts); // Seteamos el estado con los nuevos productos formateados con el id.
+        setProducts(formattedProducts); // Seteamos el estado con los nuevos productos formateados con el id.
       })
       .finally(() => {
         setLoaded(false);
       })
     
-    // const fetchProducts = async () => {
-    //   try {
-    //     setLoaded(true);
-    //     const result = category
-    //       ? await getProductByCategory(category)
-    //       : await getProducts();
-    //     setProducts(result);
-    //   } catch (error) {
-    //     console.log(error.message);
-    //   } finally {
-    //     setLoaded(false);
-    //   }
-    // }
+      // const fetchProducts = async () => {
+      //   try {
+      //     setLoaded(true);
+      //     const result = category
+      //       ? await getProductByCategory(category)
+      //       : await getProducts();
+      //     setProducts(result);
+      //   } catch (error) {
+      //     console.log(error.message);
+      //   } finally {
+      //     setLoaded(false);
+      //   }
+      // }
 
-    // fetchProducts();
+      // fetchProducts();
 
   }, [category])
   
