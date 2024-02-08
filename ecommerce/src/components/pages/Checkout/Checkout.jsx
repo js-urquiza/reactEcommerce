@@ -91,10 +91,16 @@ const Checkout = () => {
   // La acción del formulario se maneja desde onSubmit del form y no desde el btn
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" id="name" onChange={handleInputChange} />
-        <input type="text" name="adress" id="adress" onChange={handleInputChange} />
-        <input type="text" name="email" id="email" onChange={handleInputChange} />
+      <form className='simple-form' onSubmit={handleSubmit}>
+        <label htmlFor="name">Nombre:
+          <input type="text" name="name" id="name" onChange={handleInputChange} />
+        </label>
+        <label htmlFor="adress">Dirección:
+          <input type="text" name="adress" id="adress" onChange={handleInputChange} />
+        </label>
+        <label htmlFor="email">Email:
+          <input type="text" name="email" id="email" onChange={handleInputChange} />
+        </label>
         <button type="submit" className='submit-btn'>Confirmar compra</button>
       </form>
     </>
