@@ -4,7 +4,7 @@ que se resuelve siempre después del tiempo establecido en setTimeout
 y resuelve el array de productos
 */
 
-let products = [
+export const products = [
   {
     id: "1",
     name: "iPhone 15",
