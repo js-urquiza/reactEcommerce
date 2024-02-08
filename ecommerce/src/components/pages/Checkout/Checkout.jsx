@@ -4,6 +4,7 @@ import { CartContext } from '../../../context/CartContext'
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../../services/firebaseConfig';
 import { Navigate } from 'react-router-dom';
+import ErrorAlert from '../../atoms/ErrorAlert/ErrorAlert';
 
 const Checkout = () => {
   
@@ -12,15 +13,15 @@ const Checkout = () => {
   // Creamos un estado con los valores que estan en el formulario
   const [ values, setValues ] = useState({
     name: '',
-    adress: '',
+    address: '',
     email: '',
   });
 
   const [ orderId, setOrderId ] = useState(null);
+  const [errors, setErrors] = useState({});
 
   console.log(values);
 
-  
   // La función handleInputChange se asegura de que, cuando escribes en una sección específica,
   // la información se guarda en el lugar correcto de la lista.
   const handleInputChange = (e) => {
@@ -33,21 +34,49 @@ const Checkout = () => {
     // y le asigna el valor de e.target.value
   };
 
+  // Validaciones
+  const validateInputs = () => {
+
+    const newErrors = {};
+
+    if (values.name.length < 5) {
+      newErrors.name = 'El nombre es muy corto';
+    }
+    if (values.address.length < 5 || !/\d/.test(values.address)) {
+      newErrors.address = 'La dirección debe tener al menos 5 caracteres y algún número'
+    }
+    if (values.email.trim() === "") {
+      newErrors.email = "Debe escribir un email";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      newErrors.email = "Ingrese un email válido";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length == 0;
+
+  }
+
   const ordersRef = collection(db, 'orders');
 
   const handleSubmit = (e) => {
     
     e.preventDefault();
 
-    // Validaciones
+    // Validar antes de enviar
+    if (!validateInputs()) {
+      return;
+    }
+
+    // No envia formulario vacío
     if (values.name.length == 0) {
       return
     }
-    if ((values.adress.length == 0)) {
-      return;
+    if ((values.address.length == 0)) {
+      return
     }
     if ((values.email.length == 0)) {
-      return;
+      return
     }
 
     const order = {
@@ -94,12 +123,15 @@ const Checkout = () => {
       <form className='simple-form' onSubmit={handleSubmit}>
         <label htmlFor="name">Nombre:
           <input type="text" name="name" id="name" onChange={handleInputChange} />
+          {errors.name && <ErrorAlert message={errors.name} />}
         </label>
-        <label htmlFor="adress">Dirección:
-          <input type="text" name="adress" id="adress" onChange={handleInputChange} />
+        <label htmlFor="address">Dirección:
+          <input type="text" name="address" id="address" onChange={handleInputChange} />
+          {errors.address && <ErrorAlert message={errors.address} />}
         </label>
         <label htmlFor="email">Email:
           <input type="text" name="email" id="email" onChange={handleInputChange} />
+          {errors.email && <ErrorAlert message={errors.email} />}
         </label>
         <button type="submit" className='submit-btn'>Confirmar compra</button>
       </form>
