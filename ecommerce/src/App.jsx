@@ -9,6 +9,7 @@ import Cart from './components/pages/Cart/Cart';
 // Contexts
 import { CartContextProvider } from './context/CartContext';
 import LocalToFirestoreMigrator from './components/pages/LocalToFirestoreMigrator/LocalToFirestoreMigrator'
+import Checkout from './components/pages/Checkout/Checkout'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/migrator' element={<LocalToFirestoreMigrator />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>
