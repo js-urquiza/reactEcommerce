@@ -39,6 +39,17 @@ const Checkout = () => {
     
     e.preventDefault();
 
+    // Validaciones
+    if (values.name.length == 0) {
+      return
+    }
+    if ((values.adress.length == 0)) {
+      return;
+    }
+    if ((values.email.length == 0)) {
+      return;
+    }
+
     const order = {
       date: new Date(),
       customerData: values,
