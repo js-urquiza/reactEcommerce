@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './Checkout.css'
 import { CartContext } from '../../../context/CartContext'
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../services/firebaseConfig';
 import { Navigate } from 'react-router-dom';
 import ErrorAlert from '../../atoms/ErrorAlert/ErrorAlert';
@@ -98,6 +98,19 @@ const Checkout = () => {
       .catch(err => {
         console.log(err.message);
       })
+    
+    // Actualizar stock
+    cart.forEach((item) => {
+      const docRef = doc(db, "products", item.id);
+      getDoc(docRef).then((doc) => {
+        let stock = doc.data().stock;
+        if (stock - item.quantity >= 0) {
+          updateDoc(docRef, { stock: stock - item.quantity }); // Actualiza el stock al stock actual menos la cantidad comprada
+        } else {
+          alert("no hay stock de" + doc.data().name);
+        }
+      });
+    });
   }
 
   // Mensaje de checkout exitoso
