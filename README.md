@@ -11,6 +11,9 @@ This repository houses the final project from the ReactJS course by [Coderhouse]
 - **Purchase Completion:** Finalize purchases with stock updates.
 - **Form Validation:** Ensure accuracy with purchase form validations.
 
+### Deployment
+The project is deployed on Vercel at the following link: [React Ecommerce - Vercel](https://react-ecommerce-coderhouse-delta.vercel.app)
+
 ### Technologies
 
 - **Frontend:** React, CSS3, Javascript.
